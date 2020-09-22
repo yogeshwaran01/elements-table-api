@@ -2,6 +2,29 @@
 
 Elements table api runs in heroku server. It response as Json of elements and its property
 
+|       **Porperty**         |
+|------------------------|
+| atomicMass             |
+| atomicRadius           |
+| boilingPoint           |
+| bondingType            |
+| cpkHexColor            |
+| density                |
+| electronAffinity       |
+| electronegativity      |
+| electronicConfiguration|
+| groupBlock             |
+| ionRadius              |
+| ionizationEnergy       |
+| meltingPoint           |
+| name                   |
+| oxidationStates        |
+| standardState          |
+| vanDerWaalsRadius      |
+| yearDiscovered         |
+| atomic number          |
+| density                |
+
 # Usage
 
 <code> https://elements-table-api.herokuapp.com </code> <br>
