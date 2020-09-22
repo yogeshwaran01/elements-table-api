@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from json import dumps
 
-api = Flask(__name__)
+app = Flask(__name__)
 
 
 def data_list():
@@ -13,22 +13,22 @@ def data_list():
         dict_list.append(line)
     return dict_list
 
-@api.errorhandler(404)
+@app.errorhandler(404)
 def not_found(error):
     return jsonify({'error': '404 Not Found'}), 404
 
-@api.route("/all")
+@app.route("/all")
 def all():
     return jsonify(data_list())
 
-@api.route("/<num>")
+@app.route("/<num>")
 def atomic_number(num):
     try:
         return jsonify([data_list()[int(num)]])
     except:
         return not_found(404)
 
-@api.route("/name/<name>")
+@app.route("/name/<name>")
 def element_name(name):
     _list = []
     for i in data_list()[1:]:
@@ -42,7 +42,7 @@ def element_name(name):
         return jsonify(_list)
 
 
-@api.route("/symbol/<symbol>")
+@app.route("/symbol/<symbol>")
 def symbol(symbol):
     _list = []
     for i in data_list()[1:]:
@@ -57,5 +57,5 @@ def symbol(symbol):
 
 
 if __name__ == "__main__":
-    api.run(debug=True)
+    app.run(debug=True)
 
