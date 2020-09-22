@@ -1,8 +1,10 @@
 # elements-table-api
 
-Simple elements table api runs in heroku server. It response as Json.
+Elements table api runs in heroku server. It response as Json of elements and its property
 
 # Usage
+<code> https://elements-table-api.herokuapp.com </code>
+
 ## By Atomic Number
 <code> https://elements-table-api.herokuapp.com/<atomic_number> </code>
 ### Example

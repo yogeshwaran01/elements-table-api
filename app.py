@@ -3,7 +3,6 @@ from json import dumps
 
 app = Flask(__name__)
 
-
 def data_list():
     import csv
     file = open("table.csv")
@@ -17,7 +16,7 @@ def data_list():
 def not_found(error):
     return jsonify({'error': '404 Not Found'}), 404
 
-@app.route("/all")
+@app.route("/")
 def all():
     return jsonify(data_list())
 
@@ -27,9 +26,16 @@ def atomic_number(num):
         return jsonify([data_list()[int(num)]])
     except:
         return not_found(404)
+    
+@app.route("/name")
+def elements():
+    _list = []
+    for i in data_list()[1:]:
+        _list.append(i[" name"])
+    return jsonify(_list)
 
 @app.route("/name/<name>")
-def element_name(name):
+def by_element_name(name):
     _list = []
     for i in data_list()[1:]:
         if i[" name"].strip().lower() == name:
@@ -41,9 +47,15 @@ def element_name(name):
     else:
         return jsonify(_list)
 
+@app.route("/symbol")
+def symbol():
+    _list = []
+    for i in data_list()[1:]:
+        _list.append(i[" symbol"])
+    return jsonify(_list)
 
 @app.route("/symbol/<symbol>")
-def symbol(symbol):
+def by_symbol(symbol):
     _list = []
     for i in data_list()[1:]:
         if i[" symbol"].strip() == symbol:
@@ -57,5 +69,4 @@ def symbol(symbol):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run()
