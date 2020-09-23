@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 
 app = Flask(__name__)
 
@@ -65,6 +65,10 @@ def by_symbol(symbol):
         return not_found(404)
     else:
         return jsonify(_list)
+
+@app.route("/help")
+def helper():
+    return redirect("https://www.github.com/yogeshwaran01/elements-table-api")
 
 
 if __name__ == "__main__":
