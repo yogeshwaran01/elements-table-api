@@ -1,9 +1,11 @@
-from flask import Flask, jsonify, request, redirect
+from flask import Flask, jsonify, redirect
 
 app = Flask(__name__)
 
+
 def data_list():
     import csv
+
     file = open("table.csv")
     data_dict = csv.DictReader(file)
     dict_list = [0]
@@ -11,27 +13,32 @@ def data_list():
         dict_list.append(line)
     return dict_list
 
+
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({'error': '404 Not Found'}), 404
+    return jsonify({"error": "404 Not Found"}), 404
+
 
 @app.route("/")
 def all():
     return jsonify(data_list())
 
+
 @app.route("/<num>")
 def atomic_number(num):
     try:
         return jsonify([data_list()[int(num)]])
-    except:
+    except (IndexError):
         return not_found(404)
-    
+
+
 @app.route("/name")
 def elements():
     _list = []
     for i in data_list()[1:]:
         _list.append(i[" name"])
     return jsonify(_list)
+
 
 @app.route("/name/<name>")
 def by_element_name(name):
@@ -46,12 +53,14 @@ def by_element_name(name):
     else:
         return jsonify(_list)
 
+
 @app.route("/symbol")
 def symbol():
     _list = []
     for i in data_list()[1:]:
         _list.append(i[" symbol"])
     return jsonify(_list)
+
 
 @app.route("/symbol/<symbol>")
 def by_symbol(symbol):
@@ -65,6 +74,7 @@ def by_symbol(symbol):
         return not_found(404)
     else:
         return jsonify(_list)
+
 
 @app.route("/help")
 def helper():
