@@ -16,7 +16,7 @@ def data_list():
 
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({"error": "404 Not Found"}), 404
+    return jsonify([{"error": "404 Not Found"}]), 404
 
 
 @app.route("/")
