@@ -1,29 +1,6 @@
 # elements-table-api
 
-Elements table api runs in heroku server. It response as Json of elements and its property
-
-|       **Porperty**         |
-|------------------------|
-| atomicMass             |
-| atomicRadius           |
-| boilingPoint           |
-| bondingType            |
-| cpkHexColor            |
-| density                |
-| electronAffinity       |
-| electronegativity      |
-| electronicConfiguration|
-| groupBlock             |
-| ionRadius              |
-| ionizationEnergy       |
-| meltingPoint           |
-| name                   |
-| oxidationStates        |
-| standardState          |
-| vanDerWaalsRadius      |
-| yearDiscovered         |
-| atomic number          |
-| density                |
+Elements table api runs in Heroku server. It response as Json of elements and its property
 
 # Usage
 
@@ -48,4 +25,28 @@ https://elements-table-api.herokuapp.com/name/oxygen
 <code> https://elements-table-api.herokuapp.com/symbol/<symbol_of_elements> </code>
 ### Example
 https://elements-table-api.herokuapp.com/symbol/U
+  
+## Property
 
+|       **Porperty**     |
+|------------------------|
+| atomicMass             |
+| atomicRadius           |
+| boilingPoint           |
+| bondingType            |
+| cpkHexColor            |
+| density                |
+| electronAffinity       |
+| electronegativity      |
+| electronicConfiguration|
+| groupBlock             |
+| ionRadius              |
+| ionizationEnergy       |
+| meltingPoint           |
+| name                   |
+| oxidationStates        |
+| standardState          |
+| vanDerWaalsRadius      |
+| yearDiscovered         |
+| atomic number          |
+| density                |
